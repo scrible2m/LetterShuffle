@@ -17,7 +17,7 @@ public class LettersSystem : MonoBehaviour
 
     private Vector2 _asciiLetters = new Vector2(65, 90);
 
-    public void SpawnLetters(int letterRowCount, int letterColumnCount, Action callback)
+    public void SpawnLetters(uint letterRowCount, uint letterColumnCount, Action callback)
     {
         int letterSize;
         if (_units.Count > 0)

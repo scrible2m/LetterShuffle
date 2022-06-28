@@ -23,8 +23,8 @@ public class UIConstructor : MonoBehaviour
     {
         ErrorText("");
 
-        if (Int32.TryParse(_letterHeightField.text, out int letterColumnCount) &&
-        Int32.TryParse(_letterWidthField.text, out int letterRowCount))
+        if (UInt32.TryParse(_letterHeightField.text, out uint letterColumnCount) &&
+        UInt32.TryParse(_letterWidthField.text, out uint letterRowCount))
         {
             if (letterColumnCount > _maxLetters || letterRowCount > _maxLetters)
             {
