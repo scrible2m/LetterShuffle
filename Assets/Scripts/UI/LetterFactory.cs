@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class LetterFactory : MonoBehaviour
 {
-    [SerializeField] private Transform _panel;
     [SerializeField] private int _minFontSize;
     [SerializeField] private int _maxFontSize;
     [SerializeField] private Font _font;
@@ -21,8 +20,7 @@ public class LetterFactory : MonoBehaviour
         letterText.font = _font;
         letterText.color = Color.black;
         letterText.alignment = TextAnchor.MiddleCenter;
-        
-
+  
         return letterUnit;
 
     }
