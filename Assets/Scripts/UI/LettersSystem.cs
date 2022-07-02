@@ -67,7 +67,7 @@ public class LettersSystem : MonoBehaviour
         foreach (LetterUnit unit in _units)
         {
             int i = Random.Range(0,tempPositions.Count);
-            unit.NewPosition(tempPositions[i],_curves.Curves[Random.Range(0,_curves.Curves.Count)]);
+            unit.NewPosition(tempPositions[i],_curves.Curves[Random.Range(0,_curves.Curves.Count)], _shuffleTimer);
             tempPositions.RemoveAt(i);
         }
         StartCoroutine(ShuffleUnits(callback));
@@ -85,6 +85,7 @@ public class LettersSystem : MonoBehaviour
             foreach (LetterUnit unit in _units)
             {
                 unit.Shuffle(elapsedTime);
+               
             }
            
             elapsedTime += Time.deltaTime;

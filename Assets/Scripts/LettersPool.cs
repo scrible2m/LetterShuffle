@@ -10,35 +10,30 @@ public class LettersPool : MonoBehaviour
 
     private void Start()
     {
-        
-        for (int i = 0;i<_maxLetterCount; i++)
+        for (int i = 0; i < _maxLetterCount; i++)
         {
-            _lettersPool.Add(_factory.SpawnLetter(this.transform));
+            _lettersPool.Add(_factory.SpawnLetter(transform));
         }
-
     }
     public LetterUnit BecomeLetter(int letter, Vector2 position, int size, RectTransform panel)
     {
         LetterUnit unit = null;
         if (_lettersPool.Count > 0)
         {
-             unit = _lettersPool[0];
+            unit = _lettersPool[0];
             _lettersPool.RemoveAt(0);
         }
         else
         {
-             unit = _factory.SpawnLetter(this.transform);
+            unit = _factory.SpawnLetter(transform);
         }
         var tempLetter = Convert.ToChar(letter).ToString();
         unit.Init(tempLetter, position, size, panel); ;
-        
         return unit;
     }
-
-    public void Reset(LetterUnit unit )
+    public void Reset(LetterUnit unit)
     {
         _lettersPool.Add(unit);
         unit.Reset(this.transform);
     }
-
 }

@@ -11,6 +11,7 @@ public class LetterUnit : MonoBehaviour
     private Vector2 _oldPosition;
     private AnimationCurve _animationCurve;
     private float _shuffleOffset;
+    private float _letterAnimationTime;
 
     public void Init(string letter, Vector2 position, int size, RectTransform panel)
     {
@@ -53,14 +54,15 @@ public class LetterUnit : MonoBehaviour
     public void Shuffle(float time)
     {
         Vector2 tempPosition = _rectTransform.anchoredPosition;
-        _rectTransform.anchoredPosition = Vector2.Lerp(_oldPosition, _targetPosition, time) + Vector2.one * _animationCurve.Evaluate(time) * _shuffleOffset;
+        _rectTransform.anchoredPosition = Vector2.Lerp(_oldPosition, _targetPosition, time/_letterAnimationTime) + Vector2.one * _animationCurve.Evaluate(time) * _shuffleOffset;
 
     }
 
-    public void NewPosition(Vector2 position, AnimationCurve curve)
+    public void NewPosition(Vector2 position, AnimationCurve curve, float letterTime)
     {
         _targetPosition = position;
         _animationCurve = curve;
         _oldPosition = _rectTransform.anchoredPosition;
+        _letterAnimationTime = letterTime;
     }
 }
